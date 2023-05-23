@@ -1,16 +1,30 @@
 package PackageClases;
 
-public class Usuario {
-	private Integer presupuestoEnMiles;
+public class Usuario implements Comparable<Usuario>{
+	private String nombre;
 	
-	private Double tiempoDisponible;
+	private String tipo;
 	
-	private Integer atraccionPreferida;
+	private int plata;
+	
+	private double tiempo;
 
-	public Usuario(Integer presupuestoEnMiles, Double tiempoDisponible, Integer atraccionPreferida) {
-		this.presupuestoEnMiles = presupuestoEnMiles;
-		this.tiempoDisponible = tiempoDisponible;
-		this.atraccionPreferida = atraccionPreferida;
+	public Usuario(String nombre, String tipo, int plata, double tiempo) {
+		super();
+		this.nombre = nombre;
+		this.tipo = tipo;
+		this.plata = plata;
+		this.tiempo = tiempo;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [nombre=" + nombre + ", tipo=" + tipo + ", plata=" + plata + ", tiempo=" + tiempo + "]";
+	}
+
+	@Override
+	public int compareTo(Usuario o) {
+		return this.nombre.equals(o.nombre) ? 0 : 1;
 	}
 	
 }

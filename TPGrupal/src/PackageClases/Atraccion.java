@@ -1,19 +1,30 @@
 package PackageClases;
 
-public class Atraccion {
-	private Integer tipoAtraccion;
+public class Atraccion extends ProductosOfrecidos{
+	private int costo;
 	
-	private Integer precioEnMiles;
-	
-	private Double duracion;
-	
-	private Integer cupos;
+	private double duracion;
 
-	public Atraccion(Integer tipoAtraccion, Integer precioEnMiles, Double duracion, Integer cupos) {
-		this.tipoAtraccion = tipoAtraccion;
-		this.precioEnMiles = precioEnMiles;
+	private int cupo;
+
+	public Atraccion(String nombre, String tipo, int costo, double duracion, int cupo) {
+		super(nombre, tipo);
+		this.costo = costo;
 		this.duracion = duracion;
-		this.cupos = cupos;
+		this.cupo = cupo;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Atraccion [" + super.toString() + " costo=" + costo + ", duracion=" + duracion + ", cupo=" + cupo + "]";
+	}
+
+	public int getCosto() {
+		return costo;
+	}
+
+	@Override
+	public int compareTo(ProductosOfrecidos o) {
+		return this.nombre.equals(o.nombre)?0:1;
+	}
 }
