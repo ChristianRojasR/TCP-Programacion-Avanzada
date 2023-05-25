@@ -1,11 +1,13 @@
 package PackageClases;
 
+import java.util.List;
 import java.util.Set;
 
 public class PruebaArchivo {
 	public static void main(String[] args) {
-		Archivo lectorArchivoU= new Archivo("pruebaUsuarios0");
-		Set<Usuario> users = lectorArchivoU.leerArchivoUsuario();
+		Archivo lectorArchivoU = new Archivo("pruebaUsuarios");
+		List<Usuario> users = lectorArchivoU.leerArchivoUsuario();
+		users.sort(null);
 		for (Usuario usuario : users) {
 			System.out.println(usuario);
 		}

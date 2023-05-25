@@ -4,6 +4,12 @@ public abstract class ProductosOfrecidos implements Comparable<ProductosOfrecido
 	protected String nombre;
 	
 	protected String tipo;
+	
+	protected int precio;
+	
+	protected double tiempo;
+	
+	protected int cupo;
 
 	public ProductosOfrecidos(String nombre, String tipo) {
 		super();

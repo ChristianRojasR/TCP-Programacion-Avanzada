@@ -1,6 +1,8 @@
 package PackageClases;
 
 import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.Set;
@@ -14,20 +16,20 @@ public class Archivo {
 		this.nombre = nombre;
 	}
 	
-	public Set<Usuario> leerArchivoUsuario(){
+	public List<Usuario> leerArchivoUsuario(){
 		
 		Scanner scanner = null;
-		Set<Usuario> usuarios = null;
+		List<Usuario> usuarios = null;
 		
 		try {
-			File file = new File("casos-de-prueba/in/" + this.nombre + ".in");
+			File file = new File("casos de prueba/in/" + this.nombre + ".in");
 			scanner = new Scanner(file);
 			
 			scanner.useLocale(Locale.ENGLISH);
 			
 			//Aca comienza la lectura del archivo
 			//Inicializo el Set como TreeSet para optimizar la busqueda
-			usuarios = new TreeSet<Usuario>();
+			usuarios = new LinkedList<Usuario>();
 			int cantUsuarios = scanner.nextInt();
 			for (int i = 0; i < cantUsuarios; i++) {
 				usuarios.add(new Usuario(scanner.next(), scanner.next(), scanner.nextInt(), scanner.nextDouble()));
@@ -46,7 +48,7 @@ public class Archivo {
 		Set<Atraccion> atracciones = null;
 		
 		try {
-			File file = new File("casos-de-prueba/in/" + this.nombre + ".in");
+			File file = new File("casos de prueba/in/" + this.nombre + ".in");
 			scanner = new Scanner(file);
 			
 			scanner.useLocale(Locale.ENGLISH);
@@ -74,7 +76,7 @@ public class Archivo {
 		Set<Paquete> paquetes = null;
 		
 		try {
-			File file = new File("casos-de-prueba/in/" + this.nombre + ".in");
+			File file = new File("casos de prueba/in/" + this.nombre + ".in");
 			scanner = new Scanner(file);
 			
 			scanner.useLocale(Locale.ENGLISH);

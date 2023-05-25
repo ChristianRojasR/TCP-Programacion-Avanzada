@@ -24,7 +24,12 @@ public class Usuario implements Comparable<Usuario>{
 
 	@Override
 	public int compareTo(Usuario o) {
-		return this.nombre.equals(o.nombre) ? 0 : 1;
+		int resultado;
+		if((resultado = this.tipo.charAt(0) - o.tipo.charAt(0)) == 0) {
+			if((resultado = this.plata - o.plata) == 0)
+				return (int) (this.tiempo - o.tiempo);
+		}
+		return resultado;
 	}
 	
 }

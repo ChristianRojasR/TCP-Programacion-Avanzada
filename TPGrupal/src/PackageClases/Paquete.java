@@ -13,12 +13,35 @@ public class Paquete extends ProductosOfrecidos{
 		super(nombre, tipo);
 		this.atracciones = atracciones;
 		this.promocion = promocion;
+		this.precio = promocion.calcularPrecioPromocion(atracciones);
+		this.tiempo = calcularTiempo(atracciones);
+		this.cupo = calcularCupo(atracciones);
+	}
+	
+	private double calcularTiempo(Set<Atraccion> atracciones) {
+		double tiempoTotal = 0;
+		for (Atraccion atraccion : atracciones) {
+			tiempoTotal += atraccion.tiempo;
+		}
+		return tiempoTotal;
+	}
+	
+	private int calcularCupo(Set<Atraccion> atracciones) {
+		boolean flagInicial = true;
+		int cupoMin = 0;
+		for (Atraccion atraccion : atracciones) {
+			if(flagInicial || cupoMin < atraccion.cupo) {				
+				cupoMin = atraccion.cupo;
+				flagInicial = false;
+			}
+		}
+		return cupoMin;
 	}
 
 	@Override
 	public String toString() {
 		return "Paquete [" + super.toString() +" atracciones=" + verAtracciones() + ", promocion=" + promocion + 
-				", Precio=" + promocion.calcularPrecioPromocion(atracciones) +"]";
+				", Precio=" + precio +"]";
 	}
 	
 	private String verAtracciones() {
@@ -31,7 +54,12 @@ public class Paquete extends ProductosOfrecidos{
 
 	@Override
 	public int compareTo(ProductosOfrecidos o) {
-		return this.nombre.equals(o.nombre)?0:1;
+		int resultado;
+		if((resultado = this.tipo.charAt(0) - o.tipo.charAt(0)) == 0) {
+			if((resultado = this.precio - o.precio) == 0)
+				return (int) (this.tiempo - o.tiempo);
+		}
+		return resultado;
 	}
 	
 }

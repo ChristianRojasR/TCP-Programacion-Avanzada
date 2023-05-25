@@ -1,26 +1,21 @@
 package PackageClases;
 
 public class Atraccion extends ProductosOfrecidos{
-	private int costo;
-	
-	private double duracion;
 
-	private int cupo;
-
-	public Atraccion(String nombre, String tipo, int costo, double duracion, int cupo) {
+	public Atraccion(String nombre, String tipo, int precio, double tiempo, int cupo) {
 		super(nombre, tipo);
-		this.costo = costo;
-		this.duracion = duracion;
+		this.precio = precio;
+		this.tiempo = tiempo;
 		this.cupo = cupo;
 	}
 
 	@Override
 	public String toString() {
-		return "Atraccion [" + super.toString() + " costo=" + costo + ", duracion=" + duracion + ", cupo=" + cupo + "]";
+		return "Atraccion [" + super.toString() + " costo=" + precio + ", duracion=" + tiempo + ", cupo=" + cupo + "]";
 	}
 
 	public int getCosto() {
-		return costo;
+		return precio;
 	}
 
 	@Override
