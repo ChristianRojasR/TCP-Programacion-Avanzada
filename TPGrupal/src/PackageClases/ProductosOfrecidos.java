@@ -19,7 +19,7 @@ public abstract class ProductosOfrecidos implements Comparable<ProductosOfrecido
 
 	@Override
 	public String toString() {
-		return "nombre=" + nombre + ", tipo=" + tipo;
+		return nombre + "\n" + tipo;
 	}
 	
 }

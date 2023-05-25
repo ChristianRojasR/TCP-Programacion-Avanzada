@@ -88,7 +88,7 @@ public class Archivo {
 			for (int i = 0; i < cantPaquetes; i++) {
 				paquetes.add(new Paquete(scanner.next(), scanner.next(),
 						guardarAtraccionesDelPaquete(scanner.nextInt(),scanner, atracciones),
-						instanciarObjetoPromocion(scanner.next(), scanner)));
+						instanciarObjetoPromocion(scanner.next(), scanner, atracciones)));
 			}
 		} catch (Exception e) {    
 			e.printStackTrace();
@@ -115,11 +115,18 @@ public class Archivo {
 		return atraccionesPaquete;
 	}
 	
-	private Promocion instanciarObjetoPromocion(String tipoDePromocion, Scanner scanner) {
+	private Promocion instanciarObjetoPromocion(String tipoDePromocion, Scanner scanner,Set<Atraccion> atracciones) {
 		if(tipoDePromocion.equals("Porcentual"))
 			return new Porcentual(scanner.nextDouble());
 		if(tipoDePromocion.equals("Absoluta"))
 			return new Absoluta(scanner.nextInt());
-		return new AxB(scanner.next());
+		// Logica para AxB guardar la atraccion gratis
+		String nombreAtraccion = scanner.next();
+		Promocion gratis = null;
+		for (Atraccion atraccion : atracciones) {
+			if(atraccion.nombre.equals(nombreAtraccion))
+				gratis = new AxB(atraccion);
+		}
+		return gratis;
 	}
 }

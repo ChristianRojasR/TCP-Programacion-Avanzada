@@ -3,23 +3,29 @@ package PackageClases;
 import java.util.Set;
 
 public class AxB extends Promocion{
-	private String gratis;
+	private Atraccion gratis;
 
-	public AxB(String gratis) {
+	public AxB(Atraccion gratis) {
 		super();
 		this.gratis = gratis;
 	}
 
 	@Override
 	public String toString() {
-		return "AxB ,gratis=" + gratis;
+		return "AxB\ngratis: " + gratis.nombre;
+	}
+	
+	@Override
+	public int calcularPrecioOriginal(Set<Atraccion> atracciones) {
+		atracciones.add(gratis);
+		return super.calcularPrecioOriginal(atracciones);
 	}
 	
 	@Override
 	public int calcularPrecioPromocion(Set<Atraccion> atracciones) {
-		int precioTotal = super.calcularPrecioPromocion(atracciones);
+		int precioTotal = super.calcularPrecioOriginal(atracciones);
 		for (Atraccion atraccion : atracciones) {
-			if(atraccion.nombre.equals(gratis))
+			if(atraccion.equals(gratis))
 				precioTotal -= atraccion.getCosto();
 		}
 		return precioTotal;

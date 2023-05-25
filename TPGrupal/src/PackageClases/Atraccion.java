@@ -11,7 +11,7 @@ public class Atraccion extends ProductosOfrecidos{
 
 	@Override
 	public String toString() {
-		return "Atraccion [" + super.toString() + " costo=" + precio + ", duracion=" + tiempo + ", cupo=" + cupo + "]";
+		return "Atraccion:" + super.toString() + "\n" + precio + " $\n" + tiempo + " hs\n" + cupo + " personas\n==========================";
 	}
 
 	public int getCosto() {

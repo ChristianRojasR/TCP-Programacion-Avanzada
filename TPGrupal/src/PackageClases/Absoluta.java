@@ -12,7 +12,7 @@ public class Absoluta extends Promocion{
 
 	@Override
 	public String toString() {
-		return "Absoluta ,precioFinal=" + precioFinal;
+		return "Absoluta";
 	}
 	
 	@Override

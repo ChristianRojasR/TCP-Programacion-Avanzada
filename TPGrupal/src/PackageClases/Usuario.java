@@ -19,7 +19,7 @@ public class Usuario implements Comparable<Usuario>{
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", tipo=" + tipo + ", plata=" + plata + ", tiempo=" + tiempo + "]";
+		return  nombre + "\n" + tipo + "\n" + plata + " $\n" + tiempo + " hs\n=====================";
 	}
 
 	@Override

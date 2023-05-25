@@ -40,8 +40,8 @@ public class Paquete extends ProductosOfrecidos{
 
 	@Override
 	public String toString() {
-		return "Paquete [" + super.toString() +" atracciones=" + verAtracciones() + ", promocion=" + promocion + 
-				", Precio=" + precio +"]";
+		return super.toString() +"\nAtracciones: " + verAtracciones() + "\nPromo: " + promocion + 
+				"\nPrecio Original: " + promocion.calcularPrecioOriginal(atracciones) + " $\nAhora: " + precio +" $\n========================";
 	}
 	
 	private String verAtracciones() {
@@ -49,7 +49,7 @@ public class Paquete extends ProductosOfrecidos{
 		for (Atraccion atraccion : atracciones) {
 			nombres.add(atraccion.nombre);
 		}
-		return String.join(" ", nombres);
+		return String.join(", ", nombres);
 	}
 
 	@Override

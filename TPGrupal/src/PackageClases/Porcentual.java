@@ -12,12 +12,12 @@ public class Porcentual extends Promocion{
 
 	@Override
 	public String toString() {
-		return "Porcentual ,precioFinal=" + porcentaje;
+		return "Porcentual\nDescuento: " + porcentaje*100 + "%";
 	}
 	
 	@Override
 	public int calcularPrecioPromocion(Set<Atraccion> atracciones) {
-		return (int)(super.calcularPrecioPromocion(atracciones) * porcentaje);
+		return (int)(super.calcularPrecioOriginal(atracciones) * (1 - porcentaje));
 	}
 	
 }
