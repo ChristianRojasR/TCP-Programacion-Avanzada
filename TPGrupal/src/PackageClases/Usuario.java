@@ -2,11 +2,8 @@ package PackageClases;
 
 public class Usuario implements Comparable<Usuario>{
 	private String nombre;
-	
 	private String tipo;
-	
 	private int plata;
-	
 	private double tiempo;
 
 	public Usuario(String nombre, String tipo, int plata, double tiempo) {

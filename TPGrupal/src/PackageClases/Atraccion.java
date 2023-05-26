@@ -1,6 +1,6 @@
 package PackageClases;
 
-public class Atraccion extends ProductosOfrecidos{
+public class Atraccion extends Producto{
 
 	public Atraccion(String nombre, String tipo, int precio, double tiempo, int cupo) {
 		super(nombre, tipo);
@@ -8,18 +8,22 @@ public class Atraccion extends ProductosOfrecidos{
 		this.tiempo = tiempo;
 		this.cupo = cupo;
 	}
+	
+	public Atraccion() {
+		super(null,null);
+	}
 
 	@Override
 	public String toString() {
-		return "Atraccion:" + super.toString() + "\n" + precio + " $\n" + tiempo + " hs\n" + cupo + " personas\n==========================";
+		return "Atraccion-" + super.toString() + " \n==========================";
 	}
 
 	public int getCosto() {
 		return precio;
 	}
-
+	
 	@Override
-	public int compareTo(ProductosOfrecidos o) {
-		return this.nombre.equals(o.nombre)?0:1;
+	public void aceptarVisitor(Visitor visitor) {
+		visitor.visitarAtraccion(this);
 	}
 }

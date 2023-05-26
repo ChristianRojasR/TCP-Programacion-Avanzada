@@ -4,9 +4,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.LinkedList;
 
-public class Paquete extends ProductosOfrecidos{
-	private Set<Atraccion> atracciones;
-	
+public class Paquete extends Producto{
+	private Set<Atraccion> atracciones;	
 	private Promocion promocion;
 
 	public Paquete(String nombre, String tipo, Set<Atraccion> atracciones, Promocion promocion) {
@@ -40,7 +39,7 @@ public class Paquete extends ProductosOfrecidos{
 
 	@Override
 	public String toString() {
-		return super.toString() +"\nAtracciones: " + verAtracciones() + "\nPromo: " + promocion + 
+		return super.toString() + "\nAtracciones: " + verAtracciones() + "\nPromo: " + promocion +
 				"\nPrecio Original: " + promocion.calcularPrecioOriginal(atracciones) + " $\nAhora: " + precio +" $\n========================";
 	}
 	
@@ -52,14 +51,13 @@ public class Paquete extends ProductosOfrecidos{
 		return String.join(", ", nombres);
 	}
 
+	public Set<Atraccion> getAtracciones() {
+		return atracciones;
+	}
+	
 	@Override
-	public int compareTo(ProductosOfrecidos o) {
-		int resultado;
-		if((resultado = this.tipo.charAt(0) - o.tipo.charAt(0)) == 0) {
-			if((resultado = this.precio - o.precio) == 0)
-				return (int) (this.tiempo - o.tiempo);
-		}
-		return resultado;
+	public void aceptarVisitor(Visitor visitor) {
+		visitor.visitarPaquete(this);
 	}
 	
 }
