@@ -5,9 +5,9 @@ import java.util.Set;
 public class AxB extends Promocion{
 	private Atraccion gratis;
 
-	public AxB(Atraccion gratis) {
+	public AxB(Atraccion atraccion) {
 		super();
-		this.gratis = gratis;
+		this.gratis = atraccion;
 	}
 
 	@Override

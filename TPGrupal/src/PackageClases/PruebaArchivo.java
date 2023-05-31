@@ -28,7 +28,7 @@ public class PruebaArchivo {
 		
 		productoManager.agregarAtracciones(atracciones);
 		productoManager.agregarPaquetes(paquetes);
-		System.out.println(productoManager);
-		
+		Archivo salida = new Archivo("prueba_0");
+		salida.guardarArchivo(productoManager.sugerirPaquetesUsuario(users.get(0)));
 	}
 }

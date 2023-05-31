@@ -28,5 +28,28 @@ public class Usuario implements Comparable<Usuario>{
 		}
 		return resultado;
 	}
-	
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public int getPlata() {
+		return plata;
+	}
+
+	public double getTiempo() {
+		return tiempo;
+	}
+
+	public void setPlata(int plata) {
+		this.plata -= plata;
+	}
+
+	public void setTiempo(double tiempo) {
+		this.tiempo -= tiempo;
+	}
 }

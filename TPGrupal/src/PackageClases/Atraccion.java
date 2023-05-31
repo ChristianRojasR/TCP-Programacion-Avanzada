@@ -15,15 +15,10 @@ public class Atraccion extends Producto{
 
 	@Override
 	public String toString() {
-		return "Atraccion-" + super.toString() + " \n==========================";
+		return "\nAtraccion-" + super.toString() + " \n==========================";
 	}
 
 	public int getCosto() {
 		return precio;
-	}
-	
-	@Override
-	public void aceptarVisitor(Visitor visitor) {
-		visitor.visitarAtraccion(this);
 	}
 }

@@ -8,13 +8,13 @@ public class Paquete extends Producto{
 	private Set<Atraccion> atracciones;	
 	private Promocion promocion;
 
-	public Paquete(String nombre, String tipo, Set<Atraccion> atracciones, Promocion promocion) {
+	public Paquete(String nombre, String tipo, Set<Atraccion> set, Promocion promocion) {
 		super(nombre, tipo);
-		this.atracciones = atracciones;
+		this.atracciones = set;
 		this.promocion = promocion;
-		this.precio = promocion.calcularPrecioPromocion(atracciones);
-		this.tiempo = calcularTiempo(atracciones);
-		this.cupo = calcularCupo(atracciones);
+		this.precio = promocion.calcularPrecioPromocion(set);
+		this.tiempo = calcularTiempo(set);
+		this.cupo = calcularCupo(set);
 	}
 	
 	private double calcularTiempo(Set<Atraccion> atracciones) {
@@ -39,7 +39,7 @@ public class Paquete extends Producto{
 
 	@Override
 	public String toString() {
-		return super.toString() + "\nAtracciones: " + verAtracciones() + "\nPromo: " + promocion +
+		return nombre + "\nAtracciones: " + verAtracciones() + "\nPromo: " + promocion +
 				"\nPrecio Original: " + promocion.calcularPrecioOriginal(atracciones) + " $\nAhora: " + precio +" $\n========================";
 	}
 	
@@ -54,10 +54,15 @@ public class Paquete extends Producto{
 	public Set<Atraccion> getAtracciones() {
 		return atracciones;
 	}
-	
-	@Override
-	public void aceptarVisitor(Visitor visitor) {
-		visitor.visitarPaquete(this);
+
+	public void visit(Set<Producto> productos) {
+		super.visit();
+		for (Producto producto : productos) {
+			for (Atraccion atraccion : atracciones) {
+				if(producto.equals(atraccion))
+					producto.visit();
+			}
+		}
 	}
 	
 }

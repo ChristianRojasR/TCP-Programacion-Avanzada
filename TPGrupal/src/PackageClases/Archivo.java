@@ -1,6 +1,9 @@
 package PackageClases;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -128,5 +131,29 @@ public class Archivo {
 				gratis = new AxB(atraccion);
 		}
 		return gratis;
+	}
+	
+	public void guardarArchivo(List<Producto> productos) {
+		FileWriter file = null;
+		PrintWriter printerWriter = null;
+
+		try {
+			file = new FileWriter("casos de prueba/out/" + this.nombre + ".out");
+			printerWriter = new PrintWriter(file);
+
+			for (Producto producto : productos) {
+				printerWriter.println(producto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (file != null) {
+				try {
+					file.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 }
