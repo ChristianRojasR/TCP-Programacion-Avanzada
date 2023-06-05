@@ -31,5 +31,6 @@ public abstract class Producto implements Comparable<Producto>{
 
 	public void visit() {
 		this.esValido = false;
+		this.cupo --;
 	}
 }

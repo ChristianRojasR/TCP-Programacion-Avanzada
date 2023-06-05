@@ -66,11 +66,10 @@ public class ProductoManager {
 			else
 				puedeComprarlo = !producto.tipo.equals(usuario.getTipo())&& producto.tiempo <= usuario.getTiempo() && producto.precio <= usuario.getPlata() && producto.cupo > 0 && producto.esValido;
 			
+			// Modificar el cupo de la atraccion
 			if(puedeComprarlo) {
 				if(leerRespuesta(producto, scanner)) {
 					productosElegidos.add(producto);
-					producto.cupo --;
-					producto.esValido = false;
 					usuario.setPlata(producto.precio);
 					usuario.setTiempo(producto.tiempo);
 					
