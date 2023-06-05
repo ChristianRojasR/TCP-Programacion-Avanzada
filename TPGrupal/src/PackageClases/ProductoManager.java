@@ -37,10 +37,10 @@ public class ProductoManager {
 		
 		resetEsValido();
 		
-		productosElegidos.addAll(productosConPreferencia(paquetes, usuario, scanner));
-		productosElegidos.addAll(productosSinPreferencia(paquetes, usuario, scanner));
-		productosElegidos.addAll(productosConPreferencia(atracciones,usuario, scanner));
-		productosElegidos.addAll(productosSinPreferencia(atracciones,usuario, scanner));
+		productosElegidos.addAll(productosConPreferencia(paquetes, usuario, scanner, true));
+		productosElegidos.addAll(productosConPreferencia(paquetes, usuario, scanner, false));
+		productosElegidos.addAll(productosConPreferencia(atracciones,usuario, scanner, true));
+		productosElegidos.addAll(productosConPreferencia(atracciones,usuario, scanner, false));
 		
 		scanner.close();
 		return productosElegidos;
@@ -55,39 +55,18 @@ public class ProductoManager {
 		return respuesta == 1 ? true : false;
 	}
 	
-	private List<Producto> productosConPreferencia(Set<Producto> productos, Usuario usuario, Scanner scanner){
+	private List<Producto> productosConPreferencia(Set<Producto> productos, Usuario usuario, Scanner scanner, boolean esPreferido){
 		List<Producto> productosElegidos = new LinkedList<Producto>();
 		
 		for (Producto producto : productos) {
-			if(producto.tipo.equals(usuario.getTipo())&&
-			   producto.tiempo <= usuario.getTiempo() &&
-			   producto.precio <= usuario.getPlata() &&
-			   producto.cupo > 0 && producto.esValido) {
-				if(leerRespuesta(producto, scanner)) {
-					productosElegidos.add(producto);
-					producto.cupo --;
-					producto.esValido = false;
-					usuario.setPlata(producto.precio);
-					usuario.setTiempo(producto.tiempo);
-					
-					if(producto instanceof Paquete) 
-						((Paquete)producto).visit(atracciones);
-					else
-						producto.visit();
-				}
-			}
-		}
-		return productosElegidos;
-	}
-	
-	private List<Producto> productosSinPreferencia(Set<Producto> productos, Usuario usuario, Scanner scanner){
-		List<Producto> productosElegidos = new LinkedList<Producto>();
-		
-		for (Producto producto : productos) {
-			if(!producto.tipo.equals(usuario.getTipo())&&
-			   producto.tiempo <= usuario.getTiempo() &&
-			   producto.precio <= usuario.getPlata() &&
-			   producto.cupo > 0 && producto.esValido) {
+			
+			boolean puedeComprarlo;
+			if(esPreferido)
+				puedeComprarlo = producto.tipo.equals(usuario.getTipo())&& producto.tiempo <= usuario.getTiempo() && producto.precio <= usuario.getPlata() && producto.cupo > 0 && producto.esValido;
+			else
+				puedeComprarlo = !producto.tipo.equals(usuario.getTipo())&& producto.tiempo <= usuario.getTiempo() && producto.precio <= usuario.getPlata() && producto.cupo > 0 && producto.esValido;
+			
+			if(puedeComprarlo) {
 				if(leerRespuesta(producto, scanner)) {
 					productosElegidos.add(producto);
 					producto.cupo --;

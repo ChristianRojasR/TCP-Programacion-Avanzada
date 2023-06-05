@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author christian
+ * @author chris
  *
  */
 module TPGrupal {
