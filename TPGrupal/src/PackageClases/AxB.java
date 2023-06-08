@@ -12,7 +12,7 @@ public class AxB extends Promocion{
 
 	@Override
 	public String toString() {
-		return "AxB\ngratis: " + gratis.nombre;
+		return "AxB\n-Gratis: " + gratis.nombre;
 	}
 	
 	@Override

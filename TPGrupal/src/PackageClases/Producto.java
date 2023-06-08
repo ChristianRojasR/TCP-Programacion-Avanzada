@@ -13,11 +13,6 @@ public abstract class Producto implements Comparable<Producto>{
 		this.nombre = nombre;
 		this.tipo = tipo;
 	}
-
-	@Override
-	public String toString() {
-		return nombre + "\n" + tipo+ "\n" + precio + " $\n" + tiempo + " hs\n" + cupo + " personas";
-	}
 	
 	@Override
 	public int compareTo(Producto o) {

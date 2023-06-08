@@ -12,7 +12,7 @@ public class Porcentual extends Promocion{
 
 	@Override
 	public String toString() {
-		return "Porcentual\nDescuento: " + porcentaje*100 + "%";
+		return "Porcentual\n-Descuento: " + porcentaje*100 + "%";
 	}
 	
 	@Override

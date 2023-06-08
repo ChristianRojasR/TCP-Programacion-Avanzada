@@ -3,11 +3,11 @@ package PackageClases;
 import java.util.List;
 import java.util.Set;
 
-public class PruebaArchivo {
+public class Main {
 	public static void main(String[] args) {
 		Archivo lectorArchivoU = new Archivo("pruebaUsuarios");
-		List<Usuario> users = lectorArchivoU.leerArchivoUsuario();
-		users.sort(null);
+		List<Usuario> usuarios = lectorArchivoU.leerArchivoUsuario();
+		usuarios.sort(null);
 //		for (Usuario usuario : users) {
 //			System.out.println(usuario);
 //		}
@@ -23,12 +23,19 @@ public class PruebaArchivo {
 //		for (Paquete paquete : paquetes) {
 //			System.out.println(paquete);
 //		}
+		System.out.println("Bienvenido/a a Turismo en la Tierra Media\n"
+				+ "--------------------------------------------------------");
 		
 		ProductoManager productoManager = ProductoManager.getInstance();
 		
 		productoManager.agregarAtracciones(atracciones);
 		productoManager.agregarPaquetes(paquetes);
-		Archivo salida = new Archivo("prueba_0");
-		salida.guardarArchivo(productoManager.sugerirPaquetesUsuario(users.get(0)));
+		int i = 0;
+		for (Usuario usuario : usuarios) {
+			Archivo salida = new Archivo("prueba_" + i);
+			salida.guardarArchivo(productoManager.sugerirPaquetesUsuario(usuario), usuario);
+			i++;
+		}
+		System.out.println("Muchas gracias por elegirnos!");
 	}
 }

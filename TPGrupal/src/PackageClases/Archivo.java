@@ -133,7 +133,7 @@ public class Archivo {
 		return gratis;
 	}
 	
-	public void guardarArchivo(List<Producto> productos) {
+	public void guardarArchivo(List<Producto> productos, Usuario usuario) {
 		FileWriter file = null;
 		PrintWriter printerWriter = null;
 
@@ -141,6 +141,7 @@ public class Archivo {
 			file = new FileWriter("casos de prueba/out/" + this.nombre + ".out");
 			printerWriter = new PrintWriter(file);
 
+			printerWriter.println(usuario);
 			for (Producto producto : productos) {
 				printerWriter.println(producto);
 			}

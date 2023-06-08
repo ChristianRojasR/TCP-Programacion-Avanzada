@@ -39,8 +39,8 @@ public class Paquete extends Producto{
 
 	@Override
 	public String toString() {
-		return nombre + "\nAtracciones: " + verAtracciones() + "\nPromo: " + promocion +
-				"\nPrecio Original: " + promocion.calcularPrecioOriginal(atracciones) + " $\nAhora: " + precio +" $\n========================";
+		return "PAQUETE\n" + "-Atracciones incluidas: " + verAtracciones() +
+				"\n-Precio Original: " + promocion.calcularPrecioOriginal(atracciones) + " $\n-Precio con descuento: " + precio +" $\n";
 	}
 	
 	private String verAtracciones() {

@@ -34,22 +34,22 @@ public class ProductoManager {
 	public List<Producto> sugerirPaquetesUsuario(Usuario usuario) {
 		Scanner scanner = new Scanner(System.in);
 		List<Producto> productosElegidos = new LinkedList<Producto>();
-		
 		resetEsValido();
 		
+		System.out.println("Nombre de visitante: " + usuario.getNombre().toUpperCase());
 		productosElegidos.addAll(productosConPreferencia(paquetes, usuario, scanner, true));
 		productosElegidos.addAll(productosConPreferencia(paquetes, usuario, scanner, false));
 		productosElegidos.addAll(productosConPreferencia(atracciones,usuario, scanner, true));
 		productosElegidos.addAll(productosConPreferencia(atracciones,usuario, scanner, false));
 		
-		scanner.close();
 		return productosElegidos;
 	}
 	
 	private boolean leerRespuesta(Producto producto, Scanner scanner) {
 		int respuesta = 0;
 		do {
-			System.out.println(producto + "\n1. Si desea contratar el producto\n0. Si no lo desea\n");
+			System.out.println(producto + "\nAcepta sugerencia? Ingrese:\n"
+					+ "1. Para comprarlo\n0. Para no comprarlo");
 			respuesta = scanner.nextInt();
 		}while(respuesta != 1 && respuesta != 0);
 		return respuesta == 1 ? true : false;
@@ -66,9 +66,9 @@ public class ProductoManager {
 			else
 				puedeComprarlo = !producto.tipo.equals(usuario.getTipo())&& producto.tiempo <= usuario.getTiempo() && producto.precio <= usuario.getPlata() && producto.cupo > 0 && producto.esValido;
 			
-			// Modificar el cupo de la atraccion
 			if(puedeComprarlo) {
 				if(leerRespuesta(producto, scanner)) {
+					System.out.println("Aceptada!\n--------------------------------------------------------");
 					productosElegidos.add(producto);
 					usuario.setPlata(producto.precio);
 					usuario.setTiempo(producto.tiempo);

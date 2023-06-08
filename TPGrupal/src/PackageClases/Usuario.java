@@ -16,14 +16,14 @@ public class Usuario implements Comparable<Usuario>{
 
 	@Override
 	public String toString() {
-		return  nombre + "\n" + tipo + "\n" + plata + " $\n" + tiempo + " hs\n=====================";
+		return nombre.toUpperCase() + "\n-Plata: " + plata + " $\n-Tiempo: " + tiempo + " hs\n";
 	}
 
 	@Override
 	public int compareTo(Usuario o) {
 		int resultado;
-		if((resultado = this.tipo.charAt(0) - o.tipo.charAt(0)) == 0) {
-			if((resultado = this.plata - o.plata) == 0)
+		if((resultado = this.tipo.compareTo(o.tipo)) == 0) {
+			if((resultado = o.plata - this.plata) == 0)
 				return (int) (this.tiempo - o.tiempo);
 		}
 		return resultado;

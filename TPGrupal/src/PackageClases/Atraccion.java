@@ -15,7 +15,8 @@ public class Atraccion extends Producto{
 
 	@Override
 	public String toString() {
-		return "\nAtraccion-" + super.toString() + " \n==========================";
+		return "ATRACCION\n-Nombre: " + nombre + "\n-Precio: " + precio + 
+				"$\n-Duracion: " + tiempo + "hs\n";
 	}
 
 	public int getCosto() {
