@@ -1,0 +1,6 @@
+LuxLaMaga|200|10|Paisaje
+Gangplank|150|8|Accion 
+PantheonElPanadero|300|8|Degustación
+TahmKenchElReyDelRio|250|5|Degustación 
+Ivern|180|7|Terror
+Nami|220|6|Paisaje

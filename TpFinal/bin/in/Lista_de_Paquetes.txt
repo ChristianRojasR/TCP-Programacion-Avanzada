@@ -1,0 +1,7 @@
+Paquete Grieta del invocador|Accion|Entranamiento Yordle,Destruye el nexo,Torneo de Caballeros de Demacia|porcentual|10
+Cena VIP|Degustacion|Banquete Real con Lux,Bebidas del Dr.Mundo|free|Bebidas del Dr.Mundo
+Almuerzo liviano|Degustacion|Panes de Pantheon,Bebidas del Dr.Mundo|porcentual|20
+Pack Comidas All Inclusive|Degustacion|Banquete Real con Lux,Bebidas del Dr.Mundo,Panes de Pantheon|Absoluta|50
+Paquete AguasTurbias|Terror|Valle de los gritos, Cho'Gat y otras bestias|porcentual|20
+Paseo por el ARAM|Paisaje|Montañas de Zaun,Bosque Encantado de Demacia|Free|Bosque Encantado de Demacia
+Vistas Noxianas|Paisaje|Camino de Sangre de Noxus,Lago de Cristal en Piltover,Montañas de Zaun|Absoluta|15

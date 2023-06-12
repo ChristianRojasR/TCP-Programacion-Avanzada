@@ -1,5 +1,0 @@
-Paseo por el ARAM|Paisaje|Montañas de Zaun,Bosque Encantado de Demacia|Free|Bosque Encantado de Demacia
-Paquete Grieta del invocador|Accion|Entranamiento Yordle,Destruye el nexo,Torneo de Caballeros de Demacia|porcentual|10
-Cena VIP|Degustacion|Banquete Real con Lux,Bebidas del Dr.Mundo|free|Bebidas del Dr.Mundo
-Almuerzo liviano|Degustacion|Panes de Pantheon,Bebidas del Dr.Mundo|porcentual|20
-Paquete AguasTurbias|Terror|Valle de los gritos, Cho'Gat y otras bestias|porcentual|20

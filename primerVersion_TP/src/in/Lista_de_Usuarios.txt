@@ -1,4 +1,0 @@
-Garen|100|11.5|Terror
-Pyke|60|6|Paisaje
-Sylas|30|4.5|Degustacion
-Lux|45|7.5|Accion
