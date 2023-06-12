@@ -67,8 +67,8 @@ public class Paquete extends ProductosOfrecidos implements Comparable<Paquete> {
 	public int compareTo(Paquete other) {
 		int res;
 		
-		if ((res = other.precioOriginal - this.precioOriginal) == 0)
-			res = (int) (other.duracion - this.duracion);
+		if ((res = other.precioFinal - this.precioFinal) == 0)
+			res = (int) (this.duracion - other.duracion);
 
 		return res;
 	}

@@ -40,7 +40,7 @@ public class Atraccion extends ProductosOfrecidos implements Comparable<Atraccio
 	public int compareTo(Atraccion other) {
 		int res = 0;
 		if ((res = other.precioOriginal - this.precioOriginal) == 0)
-				res = (int) (other.duracion - this.duracion);
+				res = (int) (this.duracion - other.duracion);
 
 		return res;
 	}
