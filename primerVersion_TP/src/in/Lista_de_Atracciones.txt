@@ -1,0 +1,14 @@
+Montañas de Zaun|8|1.2|4|Paisaje
+Entranamiento Yordle|20|2.5|1|Accion
+Destruye el nexo|25|1.5|2|Accion
+Valle de los gritos|30|0.5|5|Terror
+Cho'Gat y otras bestias|40|1.0|2|Terror
+Paseo por Frelijord|6|1.0|4|Paisaje
+Bebidas del Dr.Mundo|20|0.5|2|Degustacion
+Banquete Real con Lux|22|1.0|4|Degustacion
+Comida Experimental con Singed|30|1.5|2|Degustacion
+Bosque Encantado de Demacia|6|1.5|10|Paisaje
+Camino de Sangre de Noxus|12|2.0|5|Paisaje
+Panes de Pantheon|20|2.0|10|Degustacion
+Torneo de Caballeros de Demacia|30|3.0|20|Accion
+Lago de Cristal en Piltover|4|0.5|30|Paisaje

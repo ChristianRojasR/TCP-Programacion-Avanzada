@@ -1,0 +1,48 @@
+
+RESUMEN DE COMPRA DEL CLIENTE: Garen
+============================= 
+Atracciones reservadas: 
+Valle de los gritos
+Entranamiento Yordle
+Destruye el nexo
+Torneo de Caballeros de Demacia
+Montañas de Zaun
+Bosque Encantado de Demacia
+Tiempo Total ---> 10.2 hs
+Precio Total  ---> $99
+
+
+RESUMEN DE COMPRA DEL CLIENTE: Pyke
+============================= 
+Atracciones reservadas: 
+Montañas de Zaun
+Bosque Encantado de Demacia
+Banquete Real con Lux
+Bebidas del Dr.Mundo
+Valle de los gritos
+Paseo por Frelijord
+Tiempo Total ---> 5.7 hs
+Precio Total  ---> $60
+
+
+RESUMEN DE COMPRA DEL CLIENTE: Sylas
+============================= 
+Atracciones reservadas: 
+Banquete Real con Lux
+Bebidas del Dr.Mundo
+Montañas de Zaun
+Bosque Encantado de Demacia
+Tiempo Total ---> 4.2 hs
+Precio Total  ---> $30
+
+
+RESUMEN DE COMPRA DEL CLIENTE: Lux
+============================= 
+Atracciones reservadas: 
+Montañas de Zaun
+Bosque Encantado de Demacia
+Valle de los gritos
+Camino de Sangre de Noxus
+Tiempo Total ---> 5.2 hs
+Precio Total  ---> $44
+
