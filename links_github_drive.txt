@@ -1,3 +1,7 @@
 Link del video:
 
 https://drive.google.com/file/d/1S67JmLsQf32XEEqglQeZhBZ6IMq8barU/view?usp=drivesdk
+
+Link del repositorio:
+
+https://github.com/ChristianRojasR/TP-paradigma-de-programacion

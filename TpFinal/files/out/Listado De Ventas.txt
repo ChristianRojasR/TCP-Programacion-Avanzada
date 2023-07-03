@@ -1,0 +1,78 @@
+
+RESUMEN DE COMPRA DEL CLIENTE: LuxLaMaga
+============================= 
+Atracciones reservadas: 
+Camino de Sangre de Noxus
+Lago de Cristal en Piltover
+Montañas de Zaun
+Banquete Real con Lux
+Bebidas del Dr.Mundo
+Panes de Pantheon
+Valle de los gritos
+Paseo por Frelijord
+Cho'Gat y otras bestias
+Tiempo Total ---> 9.7 hs
+Precio Total  ---> $135
+
+
+RESUMEN DE COMPRA DEL CLIENTE: Gangplank
+============================= 
+Atracciones reservadas: 
+Entranamiento Yordle
+Destruye el nexo
+Torneo de Caballeros de Demacia
+Valle de los gritos
+Bebidas del Dr.Mundo
+Tiempo Total ---> 8.0 hs
+Precio Total  ---> $111
+
+
+RESUMEN DE COMPRA DEL CLIENTE: PantheonElPanadero
+============================= 
+Atracciones reservadas: 
+Valle de los gritos
+Camino de Sangre de Noxus
+Lago de Cristal en Piltover
+Montañas de Zaun
+Cho'Gat y otras bestias
+Comida Experimental con Singed
+Banquete Real con Lux
+Tiempo Total ---> 7.7 hs
+Precio Total  ---> $131
+
+
+RESUMEN DE COMPRA DEL CLIENTE: TahmKenchElReyDelRio
+============================= 
+Atracciones reservadas: 
+Valle de los gritos
+Camino de Sangre de Noxus
+Lago de Cristal en Piltover
+Montañas de Zaun
+Tiempo Total ---> 4.2 hs
+Precio Total  ---> $39
+
+
+RESUMEN DE COMPRA DEL CLIENTE: Ivern
+============================= 
+Atracciones reservadas: 
+Valle de los gritos
+Camino de Sangre de Noxus
+Lago de Cristal en Piltover
+Montañas de Zaun
+Comida Experimental con Singed
+Banquete Real con Lux
+Tiempo Total ---> 6.7 hs
+Precio Total  ---> $91
+
+
+RESUMEN DE COMPRA DEL CLIENTE: Nami
+============================= 
+Atracciones reservadas: 
+Camino de Sangre de Noxus
+Paseo por Frelijord
+Bosque Encantado de Demacia
+Lago de Cristal en Piltover
+Banquete Real con Lux
+Tiempo Total ---> 6.0 hs
+Precio Total  ---> $50
+

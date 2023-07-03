@@ -2,7 +2,7 @@ package Clases;
 
 import java.util.*;
 
-import ClasesPromocion.Promocion;
+import Clases.clasePromocion.Promocion;
 
 public class Paquete extends ProductosOfrecidos implements Comparable<Paquete> {
 

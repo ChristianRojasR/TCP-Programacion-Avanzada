@@ -8,13 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+
 import Clases.Atraccion;
 import Clases.Paquete;
 import Clases.Visitante;
-import ClasesPromocion.Absoluta;
-import ClasesPromocion.AxB;
-import ClasesPromocion.Porcentual;
-import ClasesPromocion.Promocion;
+import Clases.clasePromocion.Absoluta;
+import Clases.clasePromocion.AxB;
+import Clases.clasePromocion.Porcentual;
+import Clases.clasePromocion.Promocion;
+
 import java.util.*;
 
 public class Archivo {
@@ -31,7 +33,7 @@ public class Archivo {
 		List<Visitante> usuarios = null;
 
 		try {
-			File file = new File("src/in/" + this.nombre + ".txt");
+			File file = new File("files/in/" + this.nombre + ".txt");
 			scanner = new Scanner(file);
 			scanner.useLocale(Locale.ENGLISH);
 
@@ -58,7 +60,7 @@ public class Archivo {
 
 		try {
 
-			File file = new File("src/in/" + this.nombre + ".txt");
+			File file = new File("files/in/" + this.nombre + ".txt");
 			scanner = new Scanner(file);
 			scanner.useLocale(Locale.ENGLISH);
 			atracciones = new ArrayList<Atraccion>();
@@ -89,7 +91,7 @@ public class Archivo {
 		List<Paquete> paquetes = null;
 
 		try {
-			File file = new File("src/in/" + this.nombre + ".txt");
+			File file = new File("files/in/" + this.nombre + ".txt");
 			scanner = new Scanner(file);
 			scanner.useLocale(Locale.ENGLISH);
 
@@ -157,7 +159,7 @@ public class Archivo {
 		PrintWriter imprimir = null;
 
 		try {
-			file = new FileWriter("src/out/" + this.nombre + ".txt");
+			file = new FileWriter("files/out/" + this.nombre + ".txt");
 
 			imprimir = new PrintWriter(file);
 
@@ -192,23 +194,4 @@ public class Archivo {
 		}
 	}
 
-	public void vaciarArchivoGuardado() {
-		FileWriter file = null;
-
-		try {
-
-			file = new FileWriter("src/out/" + this.nombre + ".txt");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (file != null) {
-				try {
-					file.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	}
 }

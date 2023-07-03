@@ -1,7 +1,9 @@
 package BloquePrincipal;
 
-import Clases.*;
 import java.util.*;
+
+import Clases.*;
+import LecturaDeArchivos.Archivo;
 
 public class Sistema {
 	public List<Paquete> listaPaquetes;
@@ -9,67 +11,53 @@ public class Sistema {
 	public List<Visitante> clientes;
 	private Scanner teclado;
 
-	public Sistema(List<Paquete> listaPaquetes, List<Atraccion> listaAtracciones, List<Visitante> clientes) {
-		this.listaPaquetes = listaPaquetes;
-		this.listaAtracciones = listaAtracciones;
-		this.clientes = clientes;
+	public Sistema() {
+		// CARGA DE DATOS A MEMORIA
+		Archivo lecturaUsuarios = new Archivo("Lista de Usuarios");
+		this.clientes = lecturaUsuarios.leerArchivoUsuario();
+
+		Archivo lecturAtracciones = new Archivo("Lista de Atracciones");
+		this.listaAtracciones = lecturAtracciones.leerArchivoAtraccion();
+
+		Archivo lecturaPaquetes = new Archivo("Lista de Paquetes");
+		this.listaPaquetes = lecturaPaquetes.leerArchivoPaquete(this.listaAtracciones);
 	}
 
 	public void compras() {
 		this.teclado = new Scanner(System.in);
-		Collections.sort(listaPaquetes);
-		List<Paquete> listaPreferidos = new ArrayList<Paquete>();
-		List<Paquete> listaOtros = new ArrayList<Paquete>();
 
+		Collections.sort(listaPaquetes);
 		Collections.sort(listaAtracciones);
-		List<Atraccion> listaAtraccionesPreferidas = new ArrayList<Atraccion>();
-		List<Atraccion> listaOtrasAtracciones = new ArrayList<Atraccion>();
+
+		List<Paquete> listaPaquetesPreferidos = null;
+		List<Atraccion> listaAtraccionesPreferidas = null;
 
 		for (Visitante cliente : clientes) {
-			listaPreferidos.clear();
-			listaOtros.clear();
-			for (Paquete auxiliar : listaPaquetes) {
-				if (auxiliar.getTipo().equalsIgnoreCase(cliente.getTipoPref())) {
-					listaPreferidos.add(auxiliar);
-				} else {
-					listaOtros.add(auxiliar);
-				}
+
+			listaPaquetesPreferidos = ordenarPaquetes(listaPaquetes, cliente.getTipoPref());
+
+			for (Paquete paquete : listaPaquetesPreferidos) {
+				ofertarPaquete(paquete, cliente, "PAQUETE OFRECIDO SEGUN SUS PREFERENCIAS");
 			}
 
-			for (Paquete paquete : listaPreferidos) {
-				ofertarPaquete(paquete, cliente,"PAQUETE OFRECIDO SEGUN SUS PREFERENCIAS");
-			}
-			for (Paquete paquete : listaOtros) {
-				ofertarPaquete(paquete, cliente,"OTRO PAQUETE");
-			}
-
-			listaAtraccionesPreferidas.clear();
-			listaOtrasAtracciones.clear();
-			for (Atraccion auxiliar : listaAtracciones) {
-				if (auxiliar.getTipo().equalsIgnoreCase(cliente.getTipoPref())) {
-					listaAtraccionesPreferidas.add(auxiliar);
-				} else {
-					listaOtrasAtracciones.add(auxiliar);
-				}
-			}
+			listaAtraccionesPreferidas = ordenarAtracciones(listaAtracciones, cliente.getTipoPref());
 
 			for (Atraccion atraccion : listaAtraccionesPreferidas) {
-				ofertarAtraccion(atraccion, cliente,"ATRACCION OFRECIDA SEGUN SUS PREFERENCIAS");
+				ofertarAtraccion(atraccion, cliente, "ATRACCION OFRECIDA SEGUN SUS PREFERENCIAS");
 			}
-
-			for (Atraccion atraccion : listaOtrasAtracciones) {
-				ofertarAtraccion(atraccion, cliente,"OTRO PAQUETE");
-			}
-			
 		}
 		teclado.close();
+
+		Archivo guardarCompras = new Archivo("Listado De Ventas");
+		guardarCompras.guardarArchivo(this.clientes);
 	}
 
-	private void ofertarPaquete(Paquete paquete, Visitante cliente , String mensaje) {
+	private void ofertarPaquete(Paquete paquete, Visitante cliente, String mensaje) {
+		
 		if (cliente.puedeLLevarPaquete(paquete)) {
 			System.out.println("\n===================================================");
 			System.out.println(cliente);
-			System.out.println("\n "+ mensaje + "\n");
+			System.out.println("\n " + mensaje + "\n");
 			paquete.mostrarProducto();
 			System.out.println("DESEA COMPRAR? <SI> <NO> : ");
 			String input = teclado.nextLine();
@@ -81,13 +69,14 @@ public class Sistema {
 				cliente.llevarPaquete(paquete);
 			}
 		}
+		
 	}
 
-	private void ofertarAtraccion(Atraccion atraccion, Visitante cliente,String mensaje) {
+	private void ofertarAtraccion(Atraccion atraccion, Visitante cliente, String mensaje) {
 		if (cliente.puedeLLevarAtraccion(atraccion)) {
 			System.out.println("\n===================================================");
 			System.out.println(cliente);
-			System.out.println("\n"+ mensaje+"\n");
+			System.out.println("\n" + mensaje + "\n");
 			atraccion.mostrarProducto();
 			System.out.println("DESEA COMPRAR? <SI> <NO> : ");
 			String input = teclado.nextLine();
@@ -99,6 +88,43 @@ public class Sistema {
 				cliente.llevarAtraccion(atraccion);
 			}
 		}
+	}
+
+	private List<Paquete> ordenarPaquetes(List<Paquete> listaPaquetes, String tipo) {
+		List<Paquete> listaOrdenada = new ArrayList<Paquete>();
+
+		List<Paquete> listaAuxiliar = new ArrayList<Paquete>();
+
+		for (Paquete auxiliar : listaPaquetes) {
+			if (auxiliar.getTipo().equalsIgnoreCase(tipo))
+				listaOrdenada.add(auxiliar);
+			else
+				listaAuxiliar.add(auxiliar);
+		}
+
+		for (Paquete auxiliar : listaAuxiliar) {
+			listaOrdenada.add(auxiliar);
+		}
+
+		return listaOrdenada;
+	}
+
+	private List<Atraccion> ordenarAtracciones(List<Atraccion> listaAtracciones, String tipo) {
+		List<Atraccion> listaOrdenada = new ArrayList<Atraccion>();
+		List<Atraccion> listaAuxiliar = new ArrayList<Atraccion>();
+
+		for (Atraccion auxiliar : listaAtracciones) {
+			if (auxiliar.getTipo().equalsIgnoreCase(tipo))
+				listaOrdenada.add(auxiliar);
+			else
+				listaAuxiliar.add(auxiliar);
+		}
+
+		for (Atraccion auxiliar : listaAuxiliar) {
+			listaOrdenada.add(auxiliar);
+		}
+
+		return listaOrdenada;
 	}
 
 }
